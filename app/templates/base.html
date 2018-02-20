@@ -33,21 +33,21 @@
 						<a href="#">Blog <span class="sr-only">(current)</span></a>
 					</li>
 
-					<li class="active"><a href="{{ url_for('clients.getClients') }}">Clients</a></li>
-					<li class="active"><a href="{{ url_for('orders.getOrders') }}">Orders</a></li>
+					<li class="active"><a href="{{ url_for('brouser_clients.getClients') }}">Clients</a></li>
+					<li class="active"><a href="{{ url_for('brouser_orders.getOrders') }}">Orders</a></li>
 				</ul>				
 				<ul class="nav navbar-nav navbar-right">
 					{% if g.user.is_authenticated %}
 					<li>
-						<a href="{{ url_for('clients.logOutClient') }}">Logout</a>
+						<a href="{{ url_for('brouser_clients.logOutClient') }}">Logout</a>
 					</li>
 					{% endif %}
 					{% if not g.user.is_authenticated %}
 					<li>
-						<a href="{{ url_for('clients.loginClient') }}">Sing in</a>
+						<a href="{{ url_for('brouser_clients.loginClient') }}">Sing in</a>
 					</li>
 					<li>
-						<a href="{{ url_for('clients.singUpClient') }}">Sing up</a>
+						<a href="{{ url_for('brouser_clients.singUpClient') }}">Sing up</a>
 					</li>
 					{% endif %}
 				</ul>

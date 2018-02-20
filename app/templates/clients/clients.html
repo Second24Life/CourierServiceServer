@@ -16,7 +16,7 @@
 
 	{% for client in clients %}
 		<p>
-			<a href="{{ url_for('clients.getClient', id=client.id) }}"> {{ client.id }}{{ '. ' + client.name + ' ' + client.surname }} </a>
+			<a href="{{ url_for('brouser_clients.getClient', id=client.id) }}"> {{ client.id }}{{ '. ' + client.name + ' ' + client.surname }} </a>
 		</p>
 	{% endfor %}
 

@@ -10,14 +10,14 @@
 
 	{% if client.id == g.user.id %} 
 		<div>
-			<a href="{{ url_for('clients.createOrder', id=client.id) }}">Создать заказ</a><br><br>
+			<a href="{{ url_for('brouser_clients.createOrder', id=client.id) }}">Создать заказ</a><br><br>
 		</div>
 	{% endif %}
 
 	<div>
 	{% for order in orders %}
 		<p>
-			<a href="{{ url_for('orders.getOrder', id=order.id) }}"> {{ order.id }}{{ '. ' + order.description }} </a>
+			<a href="{{ url_for('brouser_orders.getOrder', id=order.id) }}"> {{ order.id }}{{ '. ' + order.description }} </a>
 		</p>
 	{% endfor %}
 	</div>

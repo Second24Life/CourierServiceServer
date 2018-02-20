@@ -10,7 +10,7 @@
 	<div>
 	{% for order in orders %}
 		<p>
-			<a href="{{ url_for('orders.getOrder', id=order.id) }}"> {{ order.id }}{{ '. ' + order.description }} </a>
+			<a href="{{ url_for('brouser_orders.getOrder', id=order.id) }}"> {{ order.id }}{{ '. ' + order.description }} </a>
 		</p>
 	{% endfor %}
 	</div>

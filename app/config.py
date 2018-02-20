@@ -8,7 +8,7 @@ class Configuration(object):
     DEBUG = True
     
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://test_user:beta@localhost/test'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://myuser:beta@localhost:5432/mydb'
     #SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'Database/migrate')
     
     CSRF_ENABLED = True

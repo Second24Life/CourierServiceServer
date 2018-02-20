@@ -35,13 +35,13 @@
 
 	<div>
 		{% if client.id == g.user.id %} 
-		<a href="{{ url_for('clients.getOrders', id=client.id) }}">Заказы</a> 
+		<a href="{{ url_for('brouser_clients.getOrders', id=client.id) }}">Заказы</a> 
 		{% endif %}
 	</div>
 
 	<div>
 		{% if client.id == g.user.id %} 
-		<a href="{{ url_for('clients.editProfile', id=client.id) }}">Изменить профиль</a> 
+		<a href="{{ url_for('brouser_clients.editProfile', id=client.id) }}">Изменить профиль</a> 
 		{% endif %}
 	</div>
 {% endblock %}

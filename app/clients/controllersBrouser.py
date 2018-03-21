@@ -6,6 +6,7 @@ from werkzeug import check_password_hash, generate_password_hash
 from app_kkp import app, db, lm, json_kkp
 
 from .models import Client, Order, OrderType, OrderStatus
+from .forms import LoginForm, RegisterClientForm, EditClientForm, CreateOrder
 
 from datetime import datetime
 
@@ -52,14 +53,14 @@ def singUpClient():
 
 		flash('Thanks for registering')
 
-		return redirect(url_for('clients.getClient', id = client.id))
+		return redirect(url_for('brouser_clients.getClient', id = client.id))
 	return render_template('clients/register.html', form = form)
 
 #Метод для авторизации клиента
 @clients_brouser_blu.route('/login', methods = ['GET', 'POST'])
 def loginClient():
 	if g.user is not None and g.user.is_authenticated:
-		return redirect(url_for('clients.getClients'))
+		return redirect(url_for('brouser_clients.getClients'))
 
 	form = LoginForm(request.form)
 
@@ -76,14 +77,14 @@ def loginClient():
 
 			login_user(client, remember = remember_me)
 
-		return redirect(url_for('clients.getClient', id = client.id))
+		return redirect(url_for('brouser_clients.getClient', id = client.id))
 	return render_template('clients/login.html', form = form)
 
 #Метод для выхода из аккаунта
 @clients_brouser_blu.route('/logout', methods = ['GET', 'POST'])
 def logOutClient():
 	logout_user()
-	return redirect(url_for('clients.getClients'))
+	return redirect(url_for('brouser_clients.getClients'))
 
 #Получаем информацию о конкретном клиенте
 @clients_brouser_blu.route('/<int:id>/profile')
@@ -107,7 +108,7 @@ def editProfile(id):
 		db.session.add(g.user)
 		db.session.commit()
 		flash('Your changes have been saved.')
-		return redirect(url_for('clients.getClient', id = g.user.id))
+		return redirect(url_for('brouser_clients.getClient', id = g.user.id))
 	else:
 		form.name.data = g.user.name
 		form.surname.data = g.user.surname 

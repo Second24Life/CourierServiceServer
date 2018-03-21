@@ -4,7 +4,6 @@ from wtforms.validators import Required, EqualTo, Email
 
 #В данном файле представлены классы для форм регистрации,
 #авторизации, изменения клиента и создания заказов
-#В данной версии сервера, данный функционал не используетсяы
 
 class LoginForm(Form):
 	email = TextField('email', [Required(), Email()])
